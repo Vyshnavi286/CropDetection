@@ -6,11 +6,11 @@ from sklearn.preprocessing import LabelEncoder
 
 app = Flask(__name__)
 
-with open("model.pkl", "rb") as f:
+with open("api/model.pkl", "rb") as f:
     model = pickle.load(f)
 
 encoder = LabelEncoder()
-encoder.classes_ = np.load('classes.npy', allow_pickle=True)
+encoder.classes_ = np.load('api/classes.npy', allow_pickle=True)
 
 
 @app.route('/')
